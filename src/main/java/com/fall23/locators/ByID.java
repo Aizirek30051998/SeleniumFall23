@@ -4,11 +4,13 @@ import com.fall23.BaseTest;
 import com.fall23.WebDriverManager;
 import com.fall23.WebElementManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import static com.fall23.WebDriverManager.openTheSite;
 import static com.fall23.WebElementManager.byId;
+import static com.fall23.WebElementManager.scrollBy600;
 
 public class ByID extends BaseTest {
 
@@ -34,6 +36,12 @@ public class ByID extends BaseTest {
         emailInput.sendKeys("john@gmail.com");
         currentAddressInput.sendKeys("WallStreet 555");
         permanentAddressInput.sendKeys("Sovet 123");
+
+        scrollBy600();
+       // JavascriptExecutor scroll=scrollBy600("window.scrollBy(0,600)");
+       // JavascriptExecutor js = (JavascriptExecutor) driver;
+      //  js.executeScript("window.scrollBy(0, 600)");
+
         submitBtn.click();
 
         Thread.sleep(5000);

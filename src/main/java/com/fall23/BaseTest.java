@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeTest;
 import java.util.List;
 
 public abstract class BaseTest {
-    protected WebDriver driver;
+    public WebDriver driver;
 
     @BeforeClass
     public void setUp() {
