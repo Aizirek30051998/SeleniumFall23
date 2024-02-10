@@ -2,13 +2,21 @@ package com.fall23.ui.pages;
 
 import com.fall23.helper.WebElementHelper;
 import com.fall23.ui.drivers.Driver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static com.fall23.demoqa.WebDriverManager.driver;
+
 public class ButtonsPage {
+    WebDriver driver;
+    Actions actions;
 
     public ButtonsPage(){
+        driver=Driver.getDriver();
+        actions=new Actions(driver);
         PageFactory.initElements(Driver.getDriver(),this);
     }
     @FindBy(xpath="//button[@id='doubleClickBtn']")
@@ -24,14 +32,12 @@ public class ButtonsPage {
 
     public ButtonsPage clickDoubleButton() throws InterruptedException {
         Thread.sleep(1000);
-        helper.waitForButtonToBeClickAble(doubleClickBtn);
-        helper.click(doubleClickBtn);
+        actions.doubleClick(doubleClickBtn).perform();
         return this;
     }
     public ButtonsPage clickRightButton() throws InterruptedException {
         Thread.sleep(1000);
-        helper.waitForButtonToBeClickAble(rightClickBtn);
-        helper.click(rightClickBtn);
+        actions.contextClick(rightClickBtn).perform();
         return this;
     }
     public ButtonsPage clickMeButton() throws InterruptedException {

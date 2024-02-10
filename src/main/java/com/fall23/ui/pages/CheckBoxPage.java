@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CheckBoxPage {
 
     public CheckBoxPage() {
+
         PageFactory.initElements(Driver.getDriver(),this);
     }
     @FindBy(xpath = "(//button[@aria-label='Toggle'])[1]")
