@@ -2,6 +2,8 @@ import com.fall23.data.JavaFaker;
 import com.fall23.entity.Employee;
 import com.fall23.ui.drivers.Driver;
 import com.fall23.ui.pages.WebTablePage;
+import io.qameta.allure.*;
+import io.qameta.allure.testng.Tag;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
@@ -12,6 +14,17 @@ import static com.fall23.entity.Employee.getEmployeesFromTable;
 
 public class EmployeeTableTest {
 
+    @Feature("Demoqa webTable") //ok
+    @AllureId("123") // no
+    @Description("Verify all employee data in webTable") //ok
+    @Flaky // depends on functionality
+    @Issue("Can not save the data") // no
+    @Link("https://www.amazon.com/") // no
+    @Owner("Aidanek") // ok
+    @Severity(SeverityLevel.CRITICAL) // ok
+    @Story("TL-011") // ok
+    @TmsLink("")  // no
+    @Tag("Smoke") // ok
 
     @Test
     void test123(){

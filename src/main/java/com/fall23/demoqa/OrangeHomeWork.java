@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,7 @@ import static com.fall23.demoqa.WebElementManager.findByXpath;
 
 public class OrangeHomeWork {
 
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver=new ChromeDriver();
 
     @BeforeTest
     void openTheBrowser() {

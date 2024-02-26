@@ -1,13 +1,16 @@
 package com.fall23.demoqa;
 
+import com.fall23.listener.Screenshot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+@Listeners(Screenshot.class)
 
 public class OrangeHRMLogin {
 
@@ -19,7 +22,7 @@ public class OrangeHRMLogin {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        String actualLoginText=driver.findElement(By.tagName("h5")).getText();
+        String actualLoginText=driver.findElement(By.tagName("h4")).getText();
         String expLogTxt="Login";
         Assert.assertEquals(actualLoginText,expLogTxt);
 
@@ -35,7 +38,7 @@ public class OrangeHRMLogin {
 
         loginBtn.click();
 
-        String actualDashboardTxt=driver.findElement(By.tagName("h6")).getText();
+        String actualDashboardTxt=driver.findElement(By.tagName("h5")).getText();
         String expDashboardTxt="Dashboard";
         Assert.assertEquals(actualDashboardTxt,expDashboardTxt);
 
@@ -56,8 +59,8 @@ public class OrangeHRMLogin {
         String expectedResLog="Admin";
         String actualPassword="7545";      //invalid credentials
         String expectedPassword="admin123";
-        WebElement usernameInput= driver.findElement(By.name("username"));
-        WebElement passwordInput=driver.findElement(By.name("password"));
+        WebElement usernameInput= driver.findElement(By.name("usernam"));
+        WebElement passwordInput=driver.findElement(By.name("passwor"));
 
         usernameInput.sendKeys(actualUsername);
         passwordInput.sendKeys(actualPassword);

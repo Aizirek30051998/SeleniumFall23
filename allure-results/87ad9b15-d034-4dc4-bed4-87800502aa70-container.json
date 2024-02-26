@@ -1,0 +1,1 @@
+{"uuid":"87ad9b15-d034-4dc4-bed4-87800502aa70","name":"SeleniumFall23","children":["c6e87ffb-8a09-41fc-b54f-801be0070606"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1708233315470,"stop":1708233326046}],"afters":[],"start":1708233315448,"stop":1708233335718}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="E2E Test">
+    <test verbose="2" preserve-order="true" name="C:/Users/User/SeleniumFall23">
+        <classes>
+            <class name="com.fall23.demoqa.ByClassName">
+                <methods>
+                    <include name="byClassNameTest"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.ByID">
+                <methods>
+                    <include name="byIdTest"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.ByXpath">
+                <methods>
+                    <include name="demo"/>
+                    <include name="demo2"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.CssSelectorDemo">
+                <methods>
+                    <include name="demo123"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.DownloadFileTest">
+                <methods>
+                    <include name="downloadFile"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.ExpediaTravel">
+                <methods>
+                    <include name="checkTheFligths"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.ExplicitWait">
+                <methods>
+                    <include name="waitForElementToBeClickable"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.HomeWork">
+                <methods>
+                    <include name="checkBoxes"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.LinkTextTest">
+                <methods>
+                    <include name="test123"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.NambaFood">
+                <methods>
+                    <include name="checkRegistration"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.OrangeHRMLogin">
+                <methods>
+                    <include name="logintest"/>
+                    <include name="invalidLoginandPassword"/>
+                    <include name="checkForgotPassword"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.OrangeHomeWork">
+                <methods>
+                    <include name="checkInvalidLoginandPassword"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.PartialLinkTextTst">
+                <methods>
+                    <include name="demo"/>
+                </methods>
+            </class>
+            <class name="com.fall23.demoqa.mouse_interactions.AdvancedMouseInteract">
+                <methods>
+                    <include name="demo"/>
+                    <include name="demo2"/>
+                    <include name="demo3"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

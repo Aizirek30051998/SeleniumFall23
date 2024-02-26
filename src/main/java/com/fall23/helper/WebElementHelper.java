@@ -1,20 +1,19 @@
 package com.fall23.helper;
 
 import com.fall23.ui.drivers.Driver;
-import com.fall23.ui.pages.NestedFramePage;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
+import java.io.File;
 import java.time.Duration;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static com.fall23.demoqa.WebDriverManager.driver;
 
 public class WebElementHelper {
-private Select select;
+    private Select select;
 
     public WebElementHelper waitForButtonToBeClickAble(WebElement element) {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(7))
@@ -30,6 +29,9 @@ private Select select;
 
     public WebElementHelper click(WebElement element) {
         waitForButtonToBeClickAble(element);
+        waitForButtonToBeClickAble(element);
+        scrollToElement(element);
+        highlightElement(element);
         element.click();
         return this;
     }
@@ -42,7 +44,7 @@ private Select select;
 
     public void scrollToDown() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("window.scrollBy(0, 200)");
+        js.executeScript("window.scrollBy(0, 400)");
 
     }
 
@@ -52,13 +54,55 @@ private Select select;
 
 
     }
-    public WebElementHelper sendKeysWithEnter(WebElement element, String txt){
-            waitForElementToBeDisplayed(element);
-            element.sendKeys(txt);
-            element.sendKeys(Keys.ENTER);
-            return this;
 
+    public WebElementHelper sendKeysWithEnter(WebElement element, String txt) {
+        waitForElementToBeDisplayed(element);
+        element.sendKeys(txt);
+        element.sendKeys(Keys.ENTER);
+        return this;
+
+    }
+
+    public WebElementHelper scrollToElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+
+        return this;
+    }
+
+    public WebElementHelper pause(int milSec) {
+        try {
+            TimeUnit.MILLISECONDS.sleep(milSec);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        return this;
+    }
+
+    public WebElementHelper highlightElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
+        return this;
+    }
+
+    public WebElement waitForElementToBeClickableByFluentWait(WebDriver driver, WebElement element, int timeOutInSec, int pollingEveryInSec) {
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(timeOutInSec))
+                .pollingEvery(Duration.ofSeconds(pollingEveryInSec))
+                .ignoring(NoSuchElementException.class);
+
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public List<WebElement> waitForListElementsFluentWait(WebDriver driver, List<WebElement> elements, int timeOutInSec, int pollingEveryInSec) {
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(timeOutInSec))
+                .pollingEvery(Duration.ofSeconds(pollingEveryInSec))
+                .ignoring(NoSuchElementException.class);
+
+        return wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
 
+
+}

@@ -17,7 +17,7 @@ public class DropDownHelper {
     }
 
     public DropDownHelper selectByIndex(WebElement element, int index) {
-        select = new Select(element);
+        select=new Select(element);
         select.selectByIndex(index);
         return this;
     }
@@ -38,4 +38,5 @@ public class DropDownHelper {
         }
         return valueList;
     }
+
 }

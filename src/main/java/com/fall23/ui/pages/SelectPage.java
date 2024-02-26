@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SelectPage {
 
     public SelectPage(){
+
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
